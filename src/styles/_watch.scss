@@ -1,0 +1,54 @@
+.watch-page {
+  padding-bottom: 2rem;
+}
+
+.video-player {
+  width: 100%;
+  background: $dark-color;
+  margin-bottom: 2rem;
+
+  .video-placeholder {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: $light-color;
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: $primary-color;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.movie-row {
+  display: flex;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  gap: 1rem;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-player {
+    .video-placeholder {
+      height: 300px;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

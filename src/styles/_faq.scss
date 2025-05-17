@@ -1,0 +1,96 @@
+.faq-page {
+  padding-bottom: 2rem;
+}
+
+.faq-list {
+  margin: 2rem 0;
+
+  .faq-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: $dark-color;
+    color: $light-color;
+    padding: 1.2rem;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:after {
+      content: '+';
+      font-size: 1.5rem;
+    }
+
+    &.active:after {
+      content: '-';
+    }
+
+    &:hover {
+      background: lighten($dark-color, 5%);
+    }
+  }
+
+  .faq-answer {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 1.2rem;
+    border-top: 1px solid $primary-color;
+  }
+}
+
+.question-form {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  background: $dark-color;
+  padding: 2rem;
+  border-radius: 5px;
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: lighten($dark-color, 5%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      color: $light-color;
+      font-size: 1rem;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  .btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .question-form {
+    padding: 1.5rem;
+  }
+}

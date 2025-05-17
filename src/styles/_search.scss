@@ -1,0 +1,84 @@
+.search-page {
+  padding-bottom: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  margin: 2rem auto;
+  max-width: 800px;
+
+  input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 3px 0 0 3px;
+  }
+
+  button {
+    border-radius: 0 3px 3px 0;
+  }
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .category-card {
+    background: $dark-color;
+    border-radius: 5px;
+    padding: 1.5rem;
+    text-align: center;
+    min-width: 150px;
+    transition: all 0.3s ease;
+    color: $light-color;
+
+    &:hover {
+      background: $primary-color;
+      color: $white-color;
+    }
+
+    div {
+      font-weight: 500;
+    }
+  }
+}
+
+.cta {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x400?text=Retflix') no-repeat center center/cover;
+  margin: 2rem 0;
+  border-radius: 5px;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .cta {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}

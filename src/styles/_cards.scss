@@ -1,0 +1,158 @@
+// Movie Card
+.movie-card {
+  background: $dark-color;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin: 0.5rem;
+  width: 200px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &-image {
+    height: 300px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    padding: 1rem;
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &-rating {
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+
+      .star-full {
+        color: gold;
+      }
+
+      .star-half {
+        position: relative;
+        color: gold;
+
+        &::after {
+          content: '★';
+          position: absolute;
+          left: 0;
+          width: 50%;
+          overflow: hidden;
+          color: $gray-color;
+        }
+      }
+
+      .star-empty {
+        color: $gray-color;
+      }
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Plan Card
+.plan-card {
+  background: $dark-color;
+  border-radius: 5px;
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem;
+  transition: transform 0.3s ease;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
+
+  &-price {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+
+    span {
+      font-size: 1rem;
+      color: $gray-color;
+    }
+  }
+
+  &-features {
+    list-style: none;
+    margin-bottom: 2rem;
+
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Category Card
+.category-card {
+  background: $dark-color;
+  border-radius: 5px;
+  padding: 1.5rem;
+  text-align: center;
+  min-width: 150px;
+  transition: all 0.3s ease;
+  color: $light-color;
+
+  &:hover {
+    background: $primary-color;
+    color: $white-color;
+  }
+
+  div {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    width: 150px;
+
+    &-image {
+      height: 225px;
+    }
+  }
+
+  .plan-card {
+    min-width: 200px;
+    padding: 1.5rem;
+  }
+}
