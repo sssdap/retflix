@@ -1,0 +1,12 @@
+<svg width="300" height="450" viewBox="0 0 300 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="450" fill="#1A1A1A"/>
+  <path d="M150 200L120 230H180L150 200Z" fill="#333"/>
+  <path d="M150 200V170L120 200H150Z" fill="#666"/>
+  <path d="M150 200H180L150 170V200Z" fill="#999"/>
+  <path d="M120 200V230L150 200H120Z" fill="#666"/>
+  <path d="M150 200L180 230V200H150Z" fill="#666"/>
+  <path d="M150 200V230H180L150 200Z" fill="#333"/>
+  <rect x="80" y="300" width="140" height="20" rx="4" fill="#333"/>
+  <rect x="90" y="330" width="120" height="12" rx="4" fill="#333"/>
+  <rect x="100" y="350" width="100" height="10" rx="4" fill="#333"/>
+</svg>

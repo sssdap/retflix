@@ -1,32 +1,42 @@
 import { Link } from 'react-router-dom';
-import type { Movie } from '../data/movies'; // Импорт интерфейса Movie
-import '../styles/_moviecard.scss'; // Импорт стилей
+import type { Movie } from '../types/movie.types';
+import '../styles/_moviecard.scss';
 
-// Пропсы компонента
 interface MovieCardProps {
-  movie: Movie; // Используем импортированный интерфейс
+  movie: Movie;
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
-  // Функция для отрисовки рейтинга в виде звезд
-  const renderRating = () => {
+  // Function to render rating as stars (0-5 scale)
+  const renderRating = (rating: number) => {
+    // Convert 10-point scale to 5-star scale
+    const starRating = (rating / 2);
+    
     return Array(5).fill(0).map((_, i) => {
       const starValue = i + 1;
-      if (starValue <= Math.floor(movie.rating)) {
+      if (starValue <= Math.floor(starRating)) {
         return <span key={i} className="star-full">★</span>;
       }
-      if (starValue === Math.ceil(movie.rating) && movie.rating % 1 >= 0.5) {
+      if (starValue === Math.ceil(starRating) && starRating % 1 >= 0.5) {
         return <span key={i} className="star-half">★</span>;
       }
       return <span key={i} className="star-empty">★</span>;
     });
   };
 
+  // Get the poster URL or use a placeholder
+  const getPosterUrl = () => {
+    if (movie.poster_path) {
+      return `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    }
+    return 'https://via.placeholder.com/300x450?text=No+Poster+Available';
+  };
+
   return (
     <div className="movie-card">
       <div className="movie-card-image">
         <img 
-          src={movie.image} 
+          src={getPosterUrl()} 
           alt={movie.title}
           onError={(e) => {
             (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x450?text=No+Image';
@@ -35,16 +45,18 @@ const MovieCard = ({ movie }: MovieCardProps) => {
       </div>
       <div className="movie-card-content">
         <h3>{movie.title}</h3>
-        <div className="movie-card-rating">
-          {renderRating()}
-          <span className="rating-value">{movie.rating.toFixed(1)}</span>
-        </div>
+        {movie.vote_average > 0 && (
+          <div className="movie-card-rating">
+            {renderRating(movie.vote_average)}
+            <span className="rating-value">{movie.vote_average.toFixed(1)}</span>
+          </div>
+        )}
         <Link 
-          to={`/watch/${movie.id}`} 
+          to={`/movie/${movie.id}`} 
           className="btn"
-          state={{ movie }} // Передаем данные фильма через state
+          state={{ movie }}
         >
-          Watch
+          View Details
         </Link>
       </div>
     </div>
